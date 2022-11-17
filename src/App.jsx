@@ -1,7 +1,13 @@
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Tareas from "./components/Tareas";
+
 const App = () => {
 	return (
 		<>
-			<h1>app</h1>
+			<Header />
+			<Tareas />
+			<Footer />
 		</>
 	);
 };
