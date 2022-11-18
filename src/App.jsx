@@ -1,3 +1,4 @@
+import { TareasProvider } from "./context/TareasProvider";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Tareas from "./components/Tareas";
@@ -5,9 +6,11 @@ import Tareas from "./components/Tareas";
 const App = () => {
 	return (
 		<>
-			<Header />
-			<Tareas />
-			<Footer />
+			<TareasProvider>
+				<Header />
+				<Tareas />
+				<Footer />
+			</TareasProvider>
 		</>
 	);
 };
