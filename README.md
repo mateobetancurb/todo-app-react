@@ -2,6 +2,7 @@
 
 ## este proyecto contiene:
 - hooks personalizados
+- props
 - useState
 - useEffect
 - useContext
