@@ -5,3 +5,7 @@
 - useContext
 - local storage
 - tailwind
+
+
+## deploy
+https://todo-app-react-dev.vercel.app/
