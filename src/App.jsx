@@ -52,25 +52,28 @@ const App = () => {
 			<Header />
 			<main className="flex container mx-auto gap-5 mt-10">
 				<div className="container w-1/2 mx-auto shadow-lg bg-white">
+					<h2 className="text-center text-xl font-bold mt-5">
+						Agrega tus tareas
+					</h2>
 					<form
 						onSubmit={handleSubmitFormAgregarTarea}
-						className="flex flex-col p-10"
+						className="flex flex-col px-10 mt-5"
 					>
-						<label className="">
+						<label className="font-bold">
 							Tarea asignada a
 							<input
 								value={responsableTarea}
 								onChange={(e) => setResponsableTarea(e.target.value)}
-								className="bg-sky-100 mt-3 py-2 px-5 w-full rounded-full"
+								className="font-normal bg-sky-100 mt-3 py-2 px-5 w-full rounded-full"
 								type="text"
 							/>
 						</label>
-						<label className="mt-5">
+						<label className="mt-5 font-bold">
 							Tarea
 							<input
 								value={tarea}
 								onChange={(e) => setTarea(e.target.value)}
-								className="bg-sky-100 mt-3 py-2 px-5 w-full rounded-full"
+								className="font-normal bg-sky-100 mt-3 py-2 px-5 w-full rounded-full"
 								type="text"
 							/>
 						</label>
