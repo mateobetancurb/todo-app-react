@@ -7,6 +7,7 @@
 - useContext
 - local storage
 - tailwind
+- sweetalert2 (librería para mostrar notificaciones)
 
 
 ## deploy
