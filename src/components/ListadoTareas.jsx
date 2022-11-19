@@ -29,7 +29,7 @@ const ListadoTareas = ({
 			iconColor: "#d33",
 			showCancelButton: true,
 			confirmButtonColor: "#d33",
-			cancelButtonColor: "#3085d6",
+			cancelButtonColor: "#0268a0",
 			confirmButtonText: "Eliminar",
 			cancelButtonText: "Cancelar",
 		}).then((result) => {
@@ -56,7 +56,7 @@ const ListadoTareas = ({
 			iconColor: "#d33",
 			showCancelButton: true,
 			confirmButtonColor: "#d33",
-			cancelButtonColor: "#3085d6",
+			cancelButtonColor: "#0268a0",
 			confirmButtonText: "Editar",
 			cancelButtonText: "Cancelar",
 		}).then((result) => {
