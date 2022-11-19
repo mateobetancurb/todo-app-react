@@ -3,4 +3,5 @@
 - useState
 - useEffect
 - useContext
+- local storage
 - tailwind
