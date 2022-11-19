@@ -6,10 +6,17 @@ import ListadoTareas from "./components/ListadoTareas";
 import Footer from "./components/Footer";
 
 const App = () => {
-	const [tareas, setTareas] = useState([]);
+	const [tareas, setTareas] = useState(
+		JSON.parse(localStorage.getItem("tareas")) || []
+	);
 	const [tarea, setTarea] = useState("");
 	const [responsableTarea, setResponsableTarea] = useState("");
 	const [alerta, setAlerta] = useState({});
+
+	// guardar tareas en local storage
+	useEffect(() => {
+		localStorage.setItem("tareas", JSON.stringify(tareas));
+	}, [tareas]);
 
 	const handleSubmitFormAgregarTarea = (e) => {
 		e.preventDefault();
@@ -57,7 +64,7 @@ const App = () => {
 					</h2>
 					<form
 						onSubmit={handleSubmitFormAgregarTarea}
-						className="flex flex-col px-10 mt-5"
+						className="flex flex-col px-10 mt-5 pb-10"
 					>
 						<label className="font-bold">
 							Tarea asignada a
@@ -79,7 +86,7 @@ const App = () => {
 						</label>
 						<button
 							onClick={handleSubmitFormAgregarTarea}
-							className="bg-sky-700 p-2 text-white font-bold w-1/2 rounded-full mx-auto mt-4 transition-colors hover:bg-sky-900"
+							className="bg-sky-700 p-2 text-white font-bold w-1/2 rounded-full mx-auto mt-5 mb-2 transition-colors hover:bg-sky-900"
 						>
 							Agregar
 						</button>
