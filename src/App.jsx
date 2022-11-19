@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import Alerta from "./components/Alerta";
 import { generarId } from "./helpers";
 import Header from "./components/Header";
 import ListadoTareas from "./components/ListadoTareas";
 import Footer from "./components/Footer";
+import Swal from "sweetalert2";
 
 const App = () => {
 	const [tareas, setTareas] = useState(
@@ -18,14 +18,31 @@ const App = () => {
 		localStorage.setItem("tareas", JSON.stringify(tareas));
 	}, [tareas]);
 
+	//notificacion de alerta al crear una tarea
+	const Toast = Swal.mixin({
+		toast: true,
+		position: "top-end",
+		showConfirmButton: false,
+		timer: 3000,
+		timerProgressBar: true,
+		didOpen: (toast) => {
+			toast.addEventListener("mouseenter", Swal.stopTimer);
+			toast.addEventListener("mouseleave", Swal.resumeTimer);
+		},
+	});
+
 	const handleSubmitFormAgregarTarea = (e) => {
 		e.preventDefault();
 		// validar formulario
 		if (tarea.trim() === "" || responsableTarea.trim() === "") {
-			setAlerta({
-				error: true,
-				msg: "Todos los campos son obligatorios",
+			//mensaje de error
+			Swal.fire({
+				icon: "error",
+				text: "Todos los campos son obligatorios",
+				confirmButtonText: "Ok",
+				width: "400px",
 			});
+
 			return;
 		}
 
@@ -37,9 +54,10 @@ const App = () => {
 				id: generarId(),
 			};
 			setTareas([...tareas, nuevaTarea]);
-			setAlerta({
-				error: false,
-				msg: "Tarea agregada correctamente",
+			//notificacion al crear una tarea
+			Toast.fire({
+				icon: "success",
+				title: "Tarea creada exitosamente",
 			});
 		} catch (error) {
 			console.log(error);
