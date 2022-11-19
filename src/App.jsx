@@ -57,7 +57,7 @@ const App = () => {
 			//notificacion al crear una tarea
 			Toast.fire({
 				icon: "success",
-				title: "Tarea creada exitosamente",
+				title: "Tarea creada",
 			});
 		} catch (error) {
 			console.log(error);
@@ -108,14 +108,13 @@ const App = () => {
 						>
 							Agregar
 						</button>
-						{msg ? <Alerta alerta={alerta} /> : null}
 					</form>
 				</div>
 				<div className="w-1/2 mx-auto shadow-lg bg-white px-10">
 					<h2 className="text-center text-xl font-bold my-5">
 						Listado de tareas
 					</h2>
-					<ListadoTareas tareas={tareas} />
+					<ListadoTareas tareas={tareas} setTareas={setTareas} />
 				</div>
 			</main>
 		</>
