@@ -11,7 +11,7 @@ const App = () => {
 	);
 	const [tarea, setTarea] = useState("");
 	const [responsableTarea, setResponsableTarea] = useState("");
-	const [alerta, setAlerta] = useState({});
+	const [modoEdicion, setModoEdicion] = useState(false);
 
 	// guardar tareas en local storage
 	useEffect(() => {
@@ -64,13 +64,8 @@ const App = () => {
 		} finally {
 			setTarea("");
 			setResponsableTarea("");
-			setTimeout(() => {
-				setAlerta({});
-			}, 3000);
 		}
 	};
-
-	const { msg } = alerta;
 
 	return (
 		<>
@@ -114,7 +109,14 @@ const App = () => {
 					<h2 className="text-center text-xl font-bold my-5">
 						Listado de tareas
 					</h2>
-					<ListadoTareas tareas={tareas} setTareas={setTareas} />
+					<ListadoTareas
+						tareas={tareas}
+						setTareas={setTareas}
+						setResponsableTarea={setResponsableTarea}
+						setTarea={setTarea}
+						responsableTarea={responsableTarea}
+						setModoEdicion={setModoEdicion}
+					/>
 				</div>
 			</main>
 		</>

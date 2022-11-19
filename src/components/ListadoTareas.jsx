@@ -1,6 +1,14 @@
 import Swal from "sweetalert2";
 
-const ListadoTareas = ({ tareas, setTareas }) => {
+const ListadoTareas = ({
+	setTarea,
+	tareas,
+	setTareas,
+	setResponsableTarea,
+	responsableTarea,
+	setModoEdicion,
+	tarea,
+}) => {
 	const Toast = Swal.mixin({
 		toast: true,
 		position: "top-end",
@@ -29,11 +37,41 @@ const ListadoTareas = ({ tareas, setTareas }) => {
 				//eliminacion de tarea
 				const nuevasTareas = tareas.filter((tarea) => tarea.id !== id);
 				setTareas(nuevasTareas);
+
 				//notificacion al eliminar una tarea
 				Toast.fire({
 					icon: "success",
 					title: "Tarea eliminada",
 				});
+			}
+		});
+	};
+
+	//editar tarea
+	const handleEditarTarea = (id) => {
+		//confirmacion de edicion de tarea
+		Swal.fire({
+			text: "¿Quieres editar la tarea?",
+			icon: "warning",
+			iconColor: "#d33",
+			showCancelButton: true,
+			confirmButtonColor: "#d33",
+			cancelButtonColor: "#3085d6",
+			confirmButtonText: "Editar",
+			cancelButtonText: "Cancelar",
+		}).then((result) => {
+			if (result.isConfirmed) {
+				//edicion de tarea
+
+				//filtrar la tarea a editar
+				const tareaEncontrada = tareas.find((tarea) => tarea.id === id);
+				//llenar el formulario con los datos de la tarea
+				setTarea(tareaEncontrada.tarea);
+				setResponsableTarea(tareaEncontrada.responsableTarea);
+				//cambiar el estado de modoEdicion a true
+
+				setModoEdicion(true);
+				console.log(tareaEncontrada);
 			}
 		});
 	};
@@ -61,7 +99,10 @@ const ListadoTareas = ({ tareas, setTareas }) => {
 								</p>
 							</div>
 							<div className="flex gap-3 items-center px-10">
-								<button className="transition-colors hover:bg-sky-700 hover:text-white p-2 rounded-full">
+								<button
+									onClick={() => handleEditarTarea(tarea.id)}
+									className="transition-colors hover:bg-sky-700 hover:text-white p-2 rounded-full"
+								>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										fill="none"
