@@ -5,6 +5,7 @@
 - useState
 - useEffect
 - useContext
+- renderizado condicional
 - local storage
 - tailwind
 - sweetalert2 (librería para mostrar notificaciones)
