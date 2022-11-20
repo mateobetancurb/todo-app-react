@@ -79,7 +79,7 @@ const ListadoTareas = ({
 	return (
 		<div className="">
 			{tareas.length === 0 ? (
-				<div className="md:flex justify-center items-center h-1/2">
+				<div className="flex justify-center items-center h-1/2 mb-10">
 					<p>No hay tareas pendientes</p>
 				</div>
 			) : (
