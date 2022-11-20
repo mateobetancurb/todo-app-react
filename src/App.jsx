@@ -70,17 +70,17 @@ const App = () => {
 	return (
 		<>
 			<Header />
-			<main className="flex container mx-auto gap-5 mt-10">
-				<div className="container w-1/2 mx-auto shadow-lg bg-white">
-					<h2 className="text-center text-xl font-bold mt-5">
+			<main className="md:flex md:w-1/2 container px-5 mx-auto gap-5 mt-5 md:mt-10 ">
+				<div className="container w-full mx-auto shadow-lg bg-white">
+					<h2 className="text-center text-xl font-bold pt-5">
 						Agrega tus tareas
 					</h2>
 					<form
 						onSubmit={handleSubmitFormAgregarTarea}
-						className="flex flex-col px-10 mt-5 pb-10"
+						className="flex flex-col px-10 mt-7 pb-10"
 					>
 						<label className="font-bold">
-							Tarea asignada a
+							Asignar a
 							<input
 								value={responsableTarea}
 								onChange={(e) => setResponsableTarea(e.target.value)}
@@ -99,14 +99,14 @@ const App = () => {
 						</label>
 						<button
 							onClick={handleSubmitFormAgregarTarea}
-							className="bg-sky-700 p-2 text-white font-bold w-1/2 rounded-full mx-auto mt-5 mb-2 transition-colors hover:bg-sky-900"
+							className="bg-sky-700 p-2 text-white font-bold w-full md:w-1/2 rounded-full mx-auto mt-5 mb-2 transition-colors hover:bg-sky-900"
 						>
 							Agregar
 						</button>
 					</form>
 				</div>
-				<div className="w-1/2 mx-auto shadow-lg bg-white px-10">
-					<h2 className="text-center text-xl font-bold my-5">
+				<div className=" mx-auto shadow-lg bg-white my-5 p-3 md:mt-0">
+					<h2 className="text-center text-xl font-bold mt-5 mb-7 ">
 						Listado de tareas
 					</h2>
 					<ListadoTareas
