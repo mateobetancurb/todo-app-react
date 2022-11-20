@@ -70,8 +70,8 @@ const App = () => {
 	return (
 		<>
 			<Header />
-			<main className="md:flex md:w-1/2 container px-5 mx-auto gap-5 mt-5 md:mt-10 ">
-				<div className="container w-full mx-auto shadow-lg bg-white">
+			<main className="md:flex container px-5 mx-auto gap-5 mt-5 md:mt-10 ">
+				<div className="container w-full md:w-1/2 mx-auto shadow-lg bg-white">
 					<h2 className="text-center text-xl font-bold pt-5">
 						Agrega tus tareas
 					</h2>
@@ -105,7 +105,7 @@ const App = () => {
 						</button>
 					</form>
 				</div>
-				<div className=" mx-auto shadow-lg bg-white my-5 p-3 md:mt-0">
+				<div className="md:w-1/2 mx-auto shadow-lg bg-white my-5 md:my-0 p-3 md:mt-0">
 					<h2 className="text-center text-xl font-bold mt-5 mb-7 ">
 						Listado de tareas
 					</h2>

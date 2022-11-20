@@ -87,9 +87,9 @@ const ListadoTareas = ({
 					{tareas.map((tarea) => (
 						<div
 							key={tarea.id}
-							className="flex justify-between bg-sky-100 my-3 p-3 rounded-3xl"
+							className="flex justify-between bg-sky-100 my-3 p-3 md:px-4 md:mx-6 rounded-3xl"
 						>
-							<div className="">
+							<div>
 								<p className="font-bold">
 									Tarea: <span className="font-normal">{tarea.tarea}</span>{" "}
 								</p>
@@ -98,7 +98,7 @@ const ListadoTareas = ({
 									<span className="font-normal">{tarea.responsableTarea}</span>{" "}
 								</p>
 							</div>
-							<div className="flex gap-1 md:gap-3 items-center md:px-10">
+							<div className="flex gap-1 md:gap-3 items-center">
 								<button
 									onClick={() => handleEditarTarea(tarea.id)}
 									className="transition-colors hover:bg-sky-700 hover:text-white p-2 rounded-full"
