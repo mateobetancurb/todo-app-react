@@ -10,6 +10,7 @@
 - local storage
 - tailwind
 - sweetalert2 (librería para mostrar notificaciones)
+- responsive design
 
 
 ## deploy
