@@ -49,7 +49,7 @@ const ListadoTareas = ({
 
 	//editar tarea
 	const handleEditarTarea = (id) => {
-		//confirmacion de edicion de tarea
+		// confirmacion de edicion de tarea
 		Swal.fire({
 			text: "¿Quieres editar la tarea?",
 			icon: "warning",
@@ -61,17 +61,19 @@ const ListadoTareas = ({
 			cancelButtonText: "Cancelar",
 		}).then((result) => {
 			if (result.isConfirmed) {
-				//edicion de tarea
+				// filtrar la tarea a editar
+				const tareaEncontrada = tareas.find((t) => t.id === id);
 
-				//filtrar la tarea a editar
-				const tareaEncontrada = tareas.find((tarea) => tarea.id === id);
-				//llenar el formulario con los datos de la tarea
+				// actualizar los campos de tarea y responsableTarea
 				setTarea(tareaEncontrada.tarea);
 				setResponsableTarea(tareaEncontrada.responsableTarea);
-				//cambiar el estado de modoEdicion a true
 
+				// cambiar el estado de modoEdicion a true
 				setModoEdicion(true);
-				console.log(tareaEncontrada);
+
+				// eliminar la tarea existente del arreglo tareas
+				const nuevasTareas = tareas.filter((t) => t.id !== id);
+				setTareas(nuevasTareas);
 			}
 		});
 	};
